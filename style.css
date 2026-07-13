@@ -1,0 +1,176 @@
+/* ---------- Reset & base setup ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2f7, #dbe4ee);
+}
+
+/* ---------- Card container ---------- */
+.todo-card {
+  width: 420px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 26px;
+  box-shadow: 0 15px 35px rgba(30, 41, 59, 0.15);
+}
+
+.title {
+  text-align: center;
+  color: #2d3142;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+/* ---------- Input row (Flexbox) ---------- */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #d7dce3;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#task-input:focus {
+  border-color: #5b7fff;
+}
+
+#add-task-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #5b7fff;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+#add-task-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- Empty task warning message ---------- */
+.empty-warning {
+  color: #e0524d;
+  font-size: 0.85rem;
+  min-height: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* ---------- Task list ---------- */
+.task-list {
+  list-style: none;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+/* Each task row uses Flexbox to line up checkbox, text, and buttons */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 6px;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #2d3142;
+  word-break: break-word;
+}
+
+/* Strike through completed tasks */
+.task-text.completed {
+  text-decoration: line-through;
+  color: #a0a4b0;
+}
+
+.task-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.edit-btn {
+  background: #ffcf5c;
+  color: #4a3200;
+}
+
+.delete-btn {
+  background: #ff6b6b;
+  color: #ffffff;
+}
+
+.task-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- Task statistics ---------- */
+.task-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #eef0f4;
+  font-size: 0.85rem;
+  color: #5c6274;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- Responsive design ---------- */
+@media (max-width: 480px) {
+  .todo-card {
+    padding: 20px 16px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  #add-task-btn {
+    width: 100%;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+  }
+
+  .task-stats {
+    justify-content: flex-start;
+  }
+}
